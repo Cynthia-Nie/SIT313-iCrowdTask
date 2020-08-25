@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./js/jquery.min.js"></script>
+  <link href="./css/index.css" rel="stylesheet" type="text/css">
+  <title>iCrowdTaskDB</title>
+
+</head>
+
+<body style=" background-color: #f4f4f4;">
+  <!-- sign up -->
+  <div class="row">
+    <div class="col"> </div>
+    <div class="col0 content">
+      <div class="row">
+        <h3>Requester Registration</h3>
+      </div>
+      <div class="row">
+        <h3>Create an iCrowdTsak Account</h3>
+      </div>
+      <div class="row">
+        <div class="col">
+          Country of residence*
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <select name="Country" required>
+            <option value="" data-first-title="Choose from list" disabled="disabled"></option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">First Name*</div>
+        <div class="col">Last Name*</div>
+      </div>
+      <div class="row">
+        <div class="col"><input type="text" name="first_name"></div>
+        <div class="col"><input type="text" name="last_name" ></div>
+      </div>
+      <div class="row">Email*</div>
+      <div class="row">
+        <div class="col">
+          <input type="email" name="email">
+        </div>
+      </div>
+      <div class="row">Password*</div>
+      <div class="row">
+        <div class="col">
+          <input type="password" name="password">
+        </div>
+      </div>
+      <div class="row">Confirm password*</div>
+      <div class="row">
+        <div class="col">
+          <input type="password" name="confirmPwd">
+        </div>
+      </div>
+      <div class="row">Address*</div>
+      <div class="row">
+        <div class="col">
+          <input type="text" name="address1">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" name="address2">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">City*</div>
+        <div class="col" style="white-space: nowrap;">State,Province Or Region *</div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" name="city">
+        </div>
+        <div class="col">
+          <input type="text" name="region">
+        </div>
+      </div>
+      <div class="row">
+        ZIP / Postal code
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="text" name="zip_postal_code">
+        </div>
+      </div>
+      <div class="row">
+        Mobile phone number
+      </div>
+      <div class="row">
+        <div class="col">
+          <input type="number" name="tel">
+        </div>
+      </div>
+      <div class="btn">
+        <button style="font-weight: bold" onclick="createAccount()">Create Account</button>
+      </div>
+    </div>
+    <div class="col"> </div>
+  </div>
+</body>
+
+<script>
+var countryList = [
+  'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei',
+  'Bulgaria', 'Burkina Faso', 'Burundi', 'Côte d\' Ivoire', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo(Congo-Brazzaville)', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czechia (Czech Republic)', 'Democratic Republic of the Congo', 'Denmark',
+  'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini("Swaziland")', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany',
+  'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Holy See', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica',
+  'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia',
+  'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar (formerly Burma)', 'Namibia', 'Nauru', 'Nepal',
+  'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Palestine State', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru',
+  'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia',
+  'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Tajikistan',
+  'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States of America', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Venezuela',
+  'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe']
+var a = document.getElementsByName('Country')[0]
+var html = '';
+for (var i = 0; i < countryList.length; i += 1) {
+  var name = countryList[i];
+  html += `<option value="${name}">${name}</option>`;
+  }
+a.innerHTML = html;
+</script>
+<script src="./js/index.js"></script>
+
+</html>

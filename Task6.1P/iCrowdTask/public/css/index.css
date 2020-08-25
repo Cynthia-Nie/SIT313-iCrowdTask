@@ -1,0 +1,54 @@
+/**set body border and margin size**/
+body {
+  margin: 0px;
+  border: 0px;
+  overflow-x: hidden;
+  background-color: black;
+  text-emphasis-color: white;
+}
+
+h3{
+	color: green;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+.col {
+  flex: 1;
+  display: flex;
+  padding-right: 5px
+}
+
+.col0 {
+  flex: unset;
+}
+
+.content {
+  max-width: 700px;
+  min-width: 400px;
+  background-color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+select,
+input {
+  flex: 1;
+  padding: 5px;
+}
+
+
+.btn {
+  position: relative;
+  text-align: center;
+}
+
+.btn button {
+  margin: 30px;
+  padding: 15px 50px;
+  background-color: green;
+}
