@@ -47,48 +47,58 @@ app.use(function (req, res, next) {
   if (req.method == 'OPTIONS') {
     res.send(200);
   } else {
-    MgDBHelper.log('method:', method.toLowerCase(), url);
     next();
   }
 })
 
 app.post('/api/register', async (request, response) => {
   try {
-    const {country, first_name, last_name, email, password, confirmPwd, address1, address2, city, region, zip_postal_code, tel} = request.body;
-    if (!first_name) {
+    const country = request.body.country;
+    const first_name = request.body.first_name;
+    const last_name = request.body.last_name;
+    const email = request.body.email;
+    const password = request.body.password;
+    const confirmPwd = request.body.confirmPwd;
+    const address1 = request.body.address1;
+    const address2 = request.body.address2;
+    const city = request.body.city;
+    const region = request.body.region;
+    const zip_postal_code = request.body.zip_postal_code;
+    const tel = request.body.tel;
+    if (first_name == '') {
       throw Error('First name cannot be empty');
     }
-    if (!last_name) {
+    else if (last_name == '') {
       throw Error('Last name cannot be empty');
     }
-    if (!email) {
+    else if (email == '') {
       throw Error('Email cannot be empty');
     }
-    if (!validator.isEmail(email)) {
+    else if (!validator.isEmail(email)) {
       throw Error('Email is not valid');
     }
-    if (!password) {
+    else if (password == '') {
       throw Error('Password cannot be empty');
     }
-    if (!confirmPwd) {
+    else if (confirmPwd == '') {
       throw Error('Confirm password cannot be empty');
     }
-    if (password.length < 8) {
+    else if (password.length < 8) {
       throw Error('The password must be at least 8 characters');
     }
-    if (password != confirmPwd) {
+    else if (password != confirmPwd) {
       throw Error('Incorrect password');
     }
-    if (!(address1 || address2)) {
+    else if (!(address1 || address2)) {
       throw Error('Address cannot be empty');
     }
-    if (!city) {
+    else if (city == '') {
       throw Error('City cannot be empty');
     }
-    if (!region) {
+    else if (region == '') {
       throw Error('Region cannot be empty');
     }
-    if (tel && (!/^[0-9]*$/.test(tel))) {
+    else if (tel && (!/^[0-9]*$/.test(tel))) {
       throw Error('Mobile phone number incorrect format');
     }
     console.log(request.body);
@@ -100,7 +110,7 @@ app.post('/api/register', async (request, response) => {
     response.json({ msg: 'ok', data: info });
   } catch (ex) {
     response.status(400).json({ msg: ex.message })
-    MgDBHelper.log(ex);
+    console.log(ex);
   }
 })
 
@@ -110,49 +120,10 @@ app.use('/', (req, res, next) => {
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port, (error) => {
-  MgDBHelper.connect('mongodb+srv://Cynthia:0000000@sit374.ntudk.mongodb.net/sit313?retryWrites=true&w=majority');
+  mongoose.connect('mongodb+srv://Cynthia:0000000@sit374.ntudk.mongodb.net/sit313?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
   if (error) {
-    MgDBHelper.log('Something wrong', error)
+    console.log('Something wrong', error)
   } else {
-    MgDBHelper.log('Server is listening on port http://127.0.0.1:' + port);
+    console.log('Server is listening on port http://127.0.0.1:' + port);
   }
 });
-
-class MgDBHelper {
-  static async connect(uri) {
-    this.log('mongodb url...', uri);
-    return await new Promise((resolve, reject) => {
-      mongoose.connection
-        .on('error', error => reject(error))
-        .on('close', () => this.log('Database connection closed.'))
-        .once('open', () => {
-          this.log('mongodb connection...');
-          resolve(mongoose.connections[0])
-        });
-      mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    });
-  }
- 
-  static async close() {
-    return await new Promise((resolve, reject) => {
-      mongoose.disconnect((err) => {
-        if (err) {
-          this.log('close connection is error', err)
-          return reject(err);
-        }
-        resolve();
-      });
-    });
-  }
-
-  static log() {
-    try {
-      const _curDate = new Date();
-      const info = `${_curDate.getFullYear()}-${_curDate.getMonth() + 1}-${_curDate.getDay()} ${_curDate.getHours()}:${_curDate.getMinutes()}:${_curDate.getSeconds()}.${_curDate.getMilliseconds()}`;
-      console.log(`${info}-->`, ...arguments);
-    } catch (ex) {
-      console.log(ex);
-      console.log(args);
-    }
-  }
-}

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
@@ -8,94 +7,92 @@
   <script src="./js/jquery.min.js"></script>
   <link href="./css/index.css" rel="stylesheet" type="text/css">
   <title>iCrowdTaskDB</title>
-
 </head>
-
-<body style=" background-color: #f4f4f4;">
+<body>
   <!-- sign up -->
-  <div class="row">
-    <div class="col"> </div>
-    <div class="col0 content">
-      <div class="row">
-        <h3>Requester Registration</h3>
+  <div class="one">
+    <div class="two"> </div>
+    <div class="three content">
+      <div class="one">
+        <div><h3>Requester Registration</h3></div>
       </div>
-      <div class="row">
+      <div class="one">
         <h3>Create an iCrowdTsak Account</h3>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="one">
+        <div class="two">
           Country of residence*
         </div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="one">
+        <div class="two">
           <select name="Country" required>
             <option value="" data-first-title="Choose from list" disabled="disabled"></option>
           </select>
         </div>
       </div>
-      <div class="row">
-        <div class="col">First Name*</div>
-        <div class="col">Last Name*</div>
+      <div class="one">
+        <div class="two">First Name*</div>
+        <div class="two">Last Name*</div>
       </div>
-      <div class="row">
-        <div class="col"><input type="text" name="first_name"></div>
-        <div class="col"><input type="text" name="last_name" ></div>
+      <div class="one">
+        <div class="two"><input type="text" name="first_name"></div>
+        <div class="two"><input type="text" name="last_name" ></div>
       </div>
-      <div class="row">Email*</div>
-      <div class="row">
-        <div class="col">
+      <div class="one">Email*</div>
+      <div class="one">
+        <div class="two">
           <input type="email" name="email">
         </div>
       </div>
-      <div class="row">Password*</div>
-      <div class="row">
-        <div class="col">
+      <div class="one">Password*</div>
+      <div class="one">
+        <div class="two">
           <input type="password" name="password">
         </div>
       </div>
-      <div class="row">Confirm password*</div>
-      <div class="row">
-        <div class="col">
+      <div class="one">Confirm password*</div>
+      <div class="one">
+        <div class="two">
           <input type="password" name="confirmPwd">
         </div>
       </div>
-      <div class="row">Address*</div>
-      <div class="row">
-        <div class="col">
+      <div class="one">Address*</div>
+      <div class="one">
+        <div class="two">
           <input type="text" name="address1">
         </div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="one">
+        <div class="two">
           <input type="text" name="address2">
         </div>
       </div>
-      <div class="row">
-        <div class="col">City*</div>
-        <div class="col" style="white-space: nowrap;">State,Province Or Region *</div>
+      <div class="one">
+        <div class="two">City*</div>
+        <div class="two" style="white-space: nowrap;">State,Province Or Region *</div>
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="one">
+        <div class="two">
           <input type="text" name="city">
         </div>
-        <div class="col">
+        <div class="two">
           <input type="text" name="region">
         </div>
       </div>
-      <div class="row">
+      <div class="one">
         ZIP / Postal code
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="one">
+        <div class="two">
           <input type="text" name="zip_postal_code">
         </div>
       </div>
-      <div class="row">
+      <div class="one">
         Mobile phone number
       </div>
-      <div class="row">
-        <div class="col">
+      <div class="one">
+        <div class="two">
           <input type="number" name="tel">
         </div>
       </div>
@@ -103,10 +100,9 @@
         <button style="font-weight: bold" onclick="createAccount()">Create Account</button>
       </div>
     </div>
-    <div class="col"> </div>
+    <div class="two"> </div>
   </div>
 </body>
-
 <script>
 var countryList = [
   'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei',
@@ -129,5 +125,4 @@ for (var i = 0; i < countryList.length; i += 1) {
 a.innerHTML = html;
 </script>
 <script src="./js/index.js"></script>
-
 </html>

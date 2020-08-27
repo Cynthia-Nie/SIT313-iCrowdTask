@@ -49,7 +49,6 @@ app.use(function (req, res, next) {
   if (req.method == 'OPTIONS') {
     res.send(200);
   } else {
-    MgDBHelper.log('method:', method.toLowerCase(), url);
     next();
   }
 })
@@ -150,7 +149,7 @@ app.post('/api/register', async (request, response) => {
     response.json({ msg: 'ok', data: info });
   } catch (ex) {
     response.status(400).json({ msg: ex.message })
-    MgDBHelper.log(ex);
+    console.log(ex);
   }
 })
 
@@ -176,7 +175,7 @@ app.post('/api/user/signin', async (request, response) => {
     response.json({ code: 200, msg: 'Login success', data: newLog });
   } catch (ex) {
     response.status(400).json({ code: 400, msg: ex.message || ex })
-    MgDBHelper.log(ex);
+    console.log(ex);
   }
 })
 
@@ -186,49 +185,10 @@ app.use('/', (req, res, next) => {
 app.set('port', port);
 const server = http.createServer(app);
 server.listen(port, (error) => {
-  MgDBHelper.connect('mongodb+srv://Cynthia:0000000@sit374.ntudk.mongodb.net/sit313?retryWrites=true&w=majority');
+  mongoose.connect('mongodb+srv://Cynthia:0000000@sit374.ntudk.mongodb.net/sit313?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
   if (error) {
-    MgDBHelper.log('Something wrong', error)
+    console.log('Something wrong', error)
   } else {
-    MgDBHelper.log('Server is listening on port http://127.0.0.1:' + port);
+    console.log('Server is listening on port http://127.0.0.1:' + port);
   }
 });
-
-class MgDBHelper {
-  static async connect(uri) {
-    this.log('mongodb url...', uri);
-    return await new Promise((resolve, reject) => {
-      mongoose.connection
-        .on('error', error => reject(error))
-        .on('close', () => this.log('Database connection closed.'))
-        .once('open', () => {
-          this.log('mongodb connection...');
-          resolve(mongoose.connections[0])
-        });
-      mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-    });
-  }
- 
-  static async close() {
-    return await new Promise((resolve, reject) => {
-      mongoose.disconnect((err) => {
-        if (err) {
-          this.log('close connection is error', err)
-          return reject(err);
-        }
-        resolve();
-      });
-    });
-  }
-
-  static log() {
-    try {
-      const _curDate = new Date();
-      const info = `${_curDate.getFullYear()}-${_curDate.getMonth() + 1}-${_curDate.getDay()} ${_curDate.getHours()}:${_curDate.getMinutes()}:${_curDate.getSeconds()}.${_curDate.getMilliseconds()}`;
-      console.log(`${info}-->`, ...arguments);
-    } catch (ex) {
-      console.log(ex);
-      console.log(args);
-    }
-  }
-}
