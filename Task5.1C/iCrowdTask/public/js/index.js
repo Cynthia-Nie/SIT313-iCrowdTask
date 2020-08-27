@@ -6,7 +6,7 @@ function createAccount() {
     fieldMap[ele.name] = ele.value;
   });
   console.log(fieldMap);
-  var baseUrl = ''; // 'http://127.0.0.1:3000';
+  var baseUrl = '';
   var url = baseUrl + '/api/register';
   jQuery.ajax({
     type: 'post',
@@ -34,7 +34,7 @@ function login() {
     password: document.getElementById('password').value,
   }
   console.log(data);
-  var baseUrl = ''; // 'http://127.0.0.1:3000';
+  var baseUrl = '';
   jQuery.ajax({
     type: 'post',
     url: baseUrl + '/api/user/signin',

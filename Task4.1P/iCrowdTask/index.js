@@ -124,6 +124,6 @@ server.listen(port, (error) => {
   if (error) {
     console.log('Something wrong', error)
   } else {
-    console.log('Server is listening on port http://127.0.0.1:' + port);
+    console.log('Server is listening on port http://localhost:' + port);
   }
 });
