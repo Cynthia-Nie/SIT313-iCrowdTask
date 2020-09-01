@@ -83,7 +83,7 @@ app.post('/api/register', async (request, response) => {
       url:'https://us17.api.mailchimp.com/3.0/lists/0d3af59680',
       method:'POST',
       headers:{
-          Authorization:'auth 381c22d3d7cba45f6e26007c4ea6a2f7-us17'
+          Authorization:''
       },
       body:postEmail 
   }
