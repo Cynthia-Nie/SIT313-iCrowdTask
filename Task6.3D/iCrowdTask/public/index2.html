@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./js/jquery.min.js"></script>
+  <link href="./css/index.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>iCrowdTaskDB</title>
+</head>
+<body>
+  <!-- login -->
+  <div class="one">
+    <div class="two"> </div>
+    <div class="three content">
+      <div class="one">
+        <div class="two logIn">iCrowdTask Login</div>
+      </div>
+      <div class="border">
+      <div class="one">
+        <div class="two logIn">Sign in</div>
+        <div class="three" style="text-align: right;">
+          <a href="./index.html" class="btnSignUp">Sign up</a>
+        </div>
+      </div>
+      <form method="post" id="myForm" action="login"></form>
+      <div class="one">
+        Your email
+      </div>
+      <div class="one">
+        <div class="two">
+          <input type="email" id="email">
+        </div>
+      </div>
+      <div class="one">
+        <div class="two">
+          Your password
+        </div>
+        <div class="three" style="text-align: right;">
+          <a href="./forgot.html" class="forgot">
+            Forgot?
+          </a>
+        </div>
+      </div>
+      <div class="one">
+        <div class="two">
+          <input type="password" id="password">
+        </div>
+      </div>
+        <input type="checkbox" id="remember">Save Password
+      <div class="btnLogin">
+        <button id="btn1" style="width:100%" onclick="login()">Login</button>
+      </div>
+      <div class="btnLogin">
+      <a href="/auth/google" class="btnLogin"><span class="btnLogin"></span> SignIn with Google</a>
+    </div>
+    </form>
+    </div>
+    </div>
+    <div class="two"> </div>
+  </div>
+</body>
+<script>
+  window.onload = function(){
+   var oForm = document.getElementById('myForm');
+   var oUser = document.getElementById('email');
+   var oPswd = document.getElementById('passwrod');
+   var oRemember = document.getElementById('remember');
+   if (getCookie('email') && getCookie('password')) {
+   oUser.value = getCookie('email');
+   oPswd.value = getCookie('password');
+   oRemember.checked = true;
+   }
+   oRemember.onchange = function() {
+   if (!this.checked) {
+    delCookie('email');
+    delCookie('password');
+   }
+   };
+   oForm.onsubmit = function() {
+   if (remember.checked) {
+    setCookie('email', oUser.value, 7);
+    setCookie('password', oPswd.value, 7);
+   }
+   };
+  };
+  function setCookie(name, value, day) {
+   var date = new Date();
+   date.setDate(date.getDate() + day);
+   document.cookie = name + '=' + value + ';expires=' + date;
+  };
+  function getCookie(name) {
+   var reg = RegExp(name + '=([^;]+)');
+   var arr = document.cookie.match(reg);
+   if (arr) {
+   return arr[1];
+   } else {
+   return '';
+   }
+  };
+  function delCookie(name) {
+   setCookie(name, null, -1);
+  };
+</script>
+<script src="./js/index.js"></script>
+</html>

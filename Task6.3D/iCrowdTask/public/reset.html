@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="./js/jquery.min.js"></script>
+  <link href="./css/index.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>iCrowdTaskDB</title>
+</head>
+<body>
+    <div class="one">
+        <div class="two">
+            <form action="/reset" method="POST">
+            <input type="hidden" name="token" value="<%=token %>" />
+              <legend>Reset Password</legend>
+              <div class="form-group">
+                <label for="password">New Password</label>
+                <input type="password" name="password" value="" placeholder="New password" autofocus="autofocus" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <label for="confirm">Confirm Password</label>
+                <input type="password" name="confirm" value="" placeholder="Confirm password" class="form-control"/>
+              </div>
+              <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update Password</button>
+              </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
