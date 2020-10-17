@@ -1,0 +1,17 @@
+#decision{
+    width:250px;
+    height:30px;
+}
+
+#decision:hover{
+    border-color:blue
+}
+
+.Decision label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.Decision h3{
+    margin-left: 10px;
+}

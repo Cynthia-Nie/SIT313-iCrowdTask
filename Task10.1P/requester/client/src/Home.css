@@ -1,0 +1,11 @@
+.home{
+    width: auto;
+    background-color: #2b3e50;
+    color: white;
+}
+
+#SubmitButton{
+    float: right;
+    width:100px;
+    margin-right: 10px;
+}

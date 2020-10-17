@@ -1,0 +1,40 @@
+.Navbar{
+    list-style-type: none;
+    overflow: hidden;
+    background-color:#f58142
+}
+
+li {
+    display: inline;
+}
+
+li a{
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 10px;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: black;
+}
+
+.title{
+    margin-left: 10px;
+    margin-top:10px;
+    float: left;
+}
+
+.Select{
+    margin-top: 15px;
+}
+
+.type{
+    display: inline;
+    margin-left: 30px;
+}
+
+ 
+

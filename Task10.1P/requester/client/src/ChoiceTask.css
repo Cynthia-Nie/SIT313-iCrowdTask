@@ -1,0 +1,41 @@
+.SetChoice .ui input{
+    width:250px;
+    height:30px;
+}
+
+.SetChoice label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.SetChoice h3{
+    margin-left: 10px;
+}
+
+.option{
+    margin-bottom:20px;
+}
+
+#one{
+    margin-right: 120px;
+}
+
+#two{
+    margin-right: 115px;
+}
+#three{
+    margin-right: 110px;
+}
+
+#oneinput:hover{
+    border-color: blue
+}
+#twoinput:hover{
+    border-color: blue
+}
+#threeinput:hover{
+    border-color: blue
+}
+#questioninput:hover{
+    border-color: blue
+}

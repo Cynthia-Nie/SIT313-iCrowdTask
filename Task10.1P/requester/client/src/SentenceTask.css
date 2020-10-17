@@ -1,0 +1,17 @@
+.Sentence .ui input{
+    width:250px;
+    height:30px;
+}
+
+.Sentence label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.Sentence h3{
+    margin-left: 10px;
+}
+
+#questioninput:hover{
+    border-color:blue
+}

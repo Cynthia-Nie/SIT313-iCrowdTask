@@ -1,0 +1,21 @@
+.Task{
+    color: white;
+    background-color: #f58142;
+}
+
+.ListTile{
+    text-align: center
+}
+
+#Searchlabel{
+    
+    margin-right:10px
+}
+
+.Search{
+    text-align: center;
+}
+
+#Searchinput:hover{
+    border-color: blue;
+}

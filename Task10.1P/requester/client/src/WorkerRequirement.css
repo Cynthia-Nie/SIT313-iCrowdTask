@@ -1,0 +1,54 @@
+.title4{
+    margin-top:20px;
+    margin-bottom: 20px;
+    background-color: #f58142;
+    color:white;
+}
+
+.Require{
+    display: inline; 
+}
+
+.Require label{
+margin-right: 10px;
+}
+
+.Master h3{
+    float: left;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.require{
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+
+.text label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.text .ui input{
+    width:250px;
+    height:30px;
+}
+
+#isRequire{
+    margin-right: 20px;
+}
+
+#number{
+    margin-right: 20px;
+}
+
+#rewardinput:hover{
+    border-color: blue
+}
+
+#numberinput:hover{
+    border-color: blue
+}
+
+
+

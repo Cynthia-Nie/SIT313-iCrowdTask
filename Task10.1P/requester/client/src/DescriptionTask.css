@@ -1,0 +1,37 @@
+.title2
+{
+    margin-top:20px;
+    margin-bottom: 20px;
+    background-color: #f58142;
+    color:white;
+}
+
+.Description{
+    margin-bottom:10px;
+}
+
+.Description label{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.Description .ui input{
+    width:250px;
+    height:30px;
+}
+
+#labeltile{
+    margin-right: 50px;
+}
+
+#Titleinput:hover{
+    border-color:blue
+}
+
+#Descriinput:hover{
+    border-color:blue
+}
+
+#Dateinput:hover{
+    border-color:blue
+}
